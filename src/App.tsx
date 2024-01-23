@@ -1,8 +1,8 @@
 import './App.css';
-import { UserInfoPage } from './context/user/feature/userInfo/ui/pages/UserInfoPage';
+import { EmailNotificationForm } from './context/settings/feature/emailNotification/ui/containers/emailNotificationForm/emailNotificationForm';
 
 function App() {
-  return <UserInfoPage />;
+  return <EmailNotificationForm />;
 }
 
 export default App;
