@@ -1,5 +1,5 @@
 import { EmailNotificationSettingsState } from './EmailNotificationSettingsState';
-import { EmailNotificationSettingsEvent } from './emailNotificationSettingsEvent';
+import { EmailNotificationSettingsEvent } from './EmailNotificationSettingsEvent';
 
 export const emailNotificationSettingsReducer = (
   state: EmailNotificationSettingsState,
