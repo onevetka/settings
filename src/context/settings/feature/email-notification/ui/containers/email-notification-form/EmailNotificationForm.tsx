@@ -1,8 +1,10 @@
 'use client';
-import { Button } from '@/components/ui/button';
-import { Switch } from '@/components/ui/switch';
+import { useEmailNotificationSettings } from '../../../store/useEmailNotificationSettings';
+import { SettingSwitch } from '../../components/SettingSwitch';
 
 export const EmailNotificationForm: React.FC = () => {
+  const { viewModel } = useEmailNotificationSettings();
+
   return (
     <form onSubmit={() => null} className="w-full space-y-6">
       <div>
@@ -10,32 +12,10 @@ export const EmailNotificationForm: React.FC = () => {
           Email Notifications
         </h3>
         <div className="space-y-4">
-          <div className=" flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
-            <div className="space-y-0.5">
-              <div className="text-left">Marketing emails</div>
-              <div>Receive emails about new products, features, and more.</div>
-            </div>
-            <Switch checked={false} onCheckedChange={() => null} />
-          </div>
-          <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
-            <div className="space-y-0.5">
-              <div className="text-left">Security emails</div>
-              <div>Receive emails about your account security.</div>
-            </div>
-            <Switch
-              checked={true}
-              onCheckedChange={() => null}
-              disabled
-              aria-readonly
-            />
-          </div>
+          {viewModel.settings.map((setting) => (
+            <SettingSwitch viewModel={setting} />
+          ))}
         </div>
-      </div>
-      <div className="flex justify-end gap-2">
-        <Button variant="secondary" type="submit">
-          Discard
-        </Button>
-        <Button type="submit">Save</Button>
       </div>
     </form>
   );
