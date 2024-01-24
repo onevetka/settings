@@ -1,10 +1,10 @@
 import './App.css';
 import { ThemeProvider } from './components/ui/theme-provider';
-import { EmailNotificationForm } from './context/settings/feature/email-notifications/ui/containers/EmailNotificationForm';
+import { SettingsPage } from './context/settings/feature/email-notifications/ui/pages/SettingsPage';
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <EmailNotificationForm />
+      <SettingsPage />
     </ThemeProvider>
   );
 }
