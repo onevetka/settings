@@ -5,7 +5,7 @@ function LazyToDoBlock({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('rounded-md bg-primary/10', className)} {...props} />
+    <div className={cn('rounded-md bg-secondary/20', className)} {...props} />
   );
 }
 
