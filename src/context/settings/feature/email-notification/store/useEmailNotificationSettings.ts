@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import { emailNotificationSettingsState } from './EmailNotificationSettingsState';
 import { emailNotificationSettingsReducer } from './EmailNotificationSettingsReducer';
-import { EmailNotificationSettingsViewModel } from '../ui/viewModel/EmailNotificationSettingsViewModel';
+import { EmailNotificationSettingsViewModel } from '../ui/view-model/EmailNotificationSettingsViewModel';
 
 export const useEmailNotificationSettings = () => {
   const [state, dispatch] = useReducer(

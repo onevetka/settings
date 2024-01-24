@@ -1,6 +1,6 @@
 'use client';
-import { useEmailNotificationSettings } from '../../../store/useEmailNotificationSettings';
-import { SettingSwitch } from '../../components/SettingSwitch';
+import { useEmailNotificationSettings } from '../../store/useEmailNotificationSettings';
+import { SettingSwitch } from '../components/SettingSwitch';
 
 export const EmailNotificationForm: React.FC = () => {
   const { viewModel } = useEmailNotificationSettings();

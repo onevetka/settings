@@ -10,6 +10,9 @@ export default {
       },
     ],
   },
+  moduleNameMapper: {
+    '@/(.*)': '<rootDir>/src/$1',
+  },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'cjs'],
   extensionsToTreatAsEsm: ['.ts'],
   automock: false,

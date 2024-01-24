@@ -1,5 +1,5 @@
 import { Switch } from '@/components/ui/switch';
-import { SettingSwitchViewModel } from '../viewModel/SettingSwitchViewModel';
+import { SettingSwitchViewModel } from '../view-model/SettingSwitchViewModel';
 
 export interface SettingSwitchProps {
   viewModel: SettingSwitchViewModel;
