@@ -4,6 +4,7 @@ import {
 } from '../domian/entity/EmailNotificationSettings';
 
 export interface EmailNotificationSettingsState {
+  status: 'loading' | 'idle';
   originalSettings: EmailNotificationSettings;
   draftSettings: EmailNotificationSettings;
 }
@@ -11,6 +12,7 @@ export interface EmailNotificationSettingsState {
 export const emailNotificationSettingsState = (
   data: Partial<EmailNotificationSettingsState> = {}
 ): EmailNotificationSettingsState => ({
+  status: 'idle',
   originalSettings: emailNotificationSettings(),
   draftSettings: emailNotificationSettings(),
   ...data,
