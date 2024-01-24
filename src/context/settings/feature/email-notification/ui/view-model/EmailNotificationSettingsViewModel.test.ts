@@ -1,3 +1,4 @@
+import { SaveOrDiscardViewModel } from '@/context/settings/shared/save-or-discard/ui/view-model/SaveOrDiscardViewModel';
 import { emailNotificationSettings } from '../../domian/entity/EmailNotificationSettings';
 import { emailNotificationSettingsState } from '../../store/EmailNotificationSettingsState';
 import { EmailNotificationSettingsViewModel } from './EmailNotificationSettingsViewModel';
@@ -16,20 +17,20 @@ describe('EmailNotificationSettingsViewModel (Модель представле�
       expect(viewModel.saveOrDiscard).toBeUndefined();
     });
 
-    // test.skip('При внесении пользователем изменений кнопки показываются', () => {
-    //   const viewModel = new EmailNotificationSettingsViewModel(
-    //     emailNotificationSettingsState({
-    //       originalSettings: emailNotificationSettings({
-    //         isEnabledMarketingEmails: true,
-    //       }),
-    //       draftSettings: emailNotificationSettings({
-    //         isEnabledMarketingEmails: false,
-    //       }),
-    //     }),
-    //     () => null
-    //   );
+    test('При внесении пользователем изменений кнопки показываются', () => {
+      const viewModel = new EmailNotificationSettingsViewModel(
+        emailNotificationSettingsState({
+          originalSettings: emailNotificationSettings({
+            isEnabledMarketingEmails: true,
+          }),
+          draftSettings: emailNotificationSettings({
+            isEnabledMarketingEmails: false,
+          }),
+        }),
+        () => null
+      );
 
-    //   // expect(viewModel.saveOrDiscard).toBeInstanceOf(SaveOrDiscardViewModel);
-    // });
+      expect(viewModel.saveOrDiscard).toBeInstanceOf(SaveOrDiscardViewModel);
+    });
   });
 });

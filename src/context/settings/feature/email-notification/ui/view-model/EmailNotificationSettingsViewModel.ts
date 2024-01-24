@@ -4,7 +4,7 @@ import { SwitcherViewModel } from '@/core/view-model/SwitcherViewModel';
 import { Dispatch } from 'react';
 import { EmailNotificationSettingsEvent } from '../../store/EmailNotificationSettingsEvent';
 import { SaveOrDiscardViewModel } from '@/context/settings/shared/save-or-discard/ui/view-model/SaveOrDiscardViewModel';
-import { isEqual } from 'lodash';
+import _ from 'lodash';
 import { ButtonViewModel } from '@/core/view-model/ButtonViewModel';
 
 export class EmailNotificationSettingsViewModel {
@@ -42,7 +42,7 @@ export class EmailNotificationSettingsViewModel {
       }),
     ];
 
-    this.saveOrDiscard = isEqual(draftSettings, originalSettings)
+    this.saveOrDiscard = _.isEqual(draftSettings, originalSettings)
       ? undefined
       : new SaveOrDiscardViewModel({
           save: new ButtonViewModel({
