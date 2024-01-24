@@ -1,23 +1,18 @@
 'use client';
 import { SaveOrDiscard } from '@/context/settings/shared/save-or-discard/ui/components/SaveOrDiscard';
 import { useEmailNotificationSettings } from '../../store/useEmailNotificationSettings';
-import { SettingSwitch } from '../components/SettingSwitch';
+import { LazyToDoSection } from './LazyToDoSection';
+import { EmailNotificationSettings } from './EmailNotificationSettings';
 
 export const EmailNotificationForm: React.FC = () => {
   const { viewModel } = useEmailNotificationSettings();
 
   return (
     <div className="w-full space-y-6">
-      <div>
-        <h3 className="mb-4 text-left text-lg font-medium">
-          Email Notifications
-        </h3>
-        <div className="space-y-4">
-          {viewModel.settings.map((setting) => (
-            <SettingSwitch viewModel={setting} />
-          ))}
-        </div>
-      </div>
+      <h1 className="mb-4 text-left text-4xl font-medium">Settings</h1>
+      <LazyToDoSection />
+      <EmailNotificationSettings />
+      <LazyToDoSection />
       {viewModel.saveOrDiscard && (
         <SaveOrDiscard viewModel={viewModel.saveOrDiscard} />
       )}
