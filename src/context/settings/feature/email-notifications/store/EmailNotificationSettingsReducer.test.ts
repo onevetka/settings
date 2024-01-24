@@ -94,4 +94,6 @@ describe('EmailNotificationSettingsReducer (Способы использова�
       expect(state.originalSettings.isEnabledSecurityEmails).toBe(true);
     });
   });
+
+  describe.skip('ReceiveEmailSettingsEvent (Получение настроек email уведомлений)', () => {});
 });

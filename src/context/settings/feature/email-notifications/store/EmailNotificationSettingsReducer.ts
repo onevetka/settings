@@ -1,5 +1,8 @@
 import { EmailNotificationSettingsState } from './EmailNotificationSettingsState';
-import { EmailNotificationSettingsEvent } from './EmailNotificationSettingsEvent';
+import {
+  EmailNotificationSettingsEvent,
+  ReceiveEmailSettingsEvent,
+} from './EmailNotificationSettingsEvent';
 
 export const emailNotificationSettingsReducer = (
   state: EmailNotificationSettingsState,
@@ -14,6 +17,8 @@ export const emailNotificationSettingsReducer = (
       return saveEvent(state);
     case 'DiscardEvent':
       return discardEvent(state);
+    case 'ReceiveEmailSettingsEvent':
+      return receiveEmailSettings(state, event);
   }
 };
 
@@ -56,5 +61,17 @@ function discardEvent(
   return {
     ...state,
     draftSettings: state.originalSettings,
+  };
+}
+
+function receiveEmailSettings(
+  state: EmailNotificationSettingsState,
+  event: ReceiveEmailSettingsEvent
+): EmailNotificationSettingsState {
+  return {
+    ...state,
+    status: 'idle',
+    originalSettings: event.data,
+    draftSettings: event.data,
   };
 }
