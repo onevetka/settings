@@ -16,7 +16,7 @@ describe('EmailNotificationSettingsViewModel (Модель представле�
       () => null
     );
 
-    test.skip('Пользователь видит скелетон', () => {
+    test('Пользователь видит скелетон', () => {
       viewModel.settings.map((setting) =>
         expect(setting).toBeInstanceOf(SkeletonViewModel)
       );
@@ -45,20 +45,7 @@ describe('EmailNotificationSettingsViewModel (Модель представле�
   });
 
   describe.skip('Если данные отправляются', () => {
-    const viewModel = new EmailNotificationSettingsViewModel(
-      emailNotificationSettingsState({
-        // status: 'pending', TODO: Добавить отправку
-        originalSettings: emailNotificationSettings(),
-        draftSettings: emailNotificationSettings(),
-      }),
-      () => null
-    );
-
-    test('Управление настройками заблокировано', () => {
-      viewModel.settings.forEach((setting) =>
-        expect(setting.switcher.isDisabled).toBe(true)
-      );
-    });
+    test('Управление настройками заблокировано', () => {});
 
     test('На кнопке "Сохранить" индикатор загрузки', () => {});
   });

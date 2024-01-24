@@ -12,7 +12,7 @@ export interface EmailNotificationSettingsState {
 export const emailNotificationSettingsState = (
   data: Partial<EmailNotificationSettingsState> = {}
 ): EmailNotificationSettingsState => ({
-  status: 'loading',
+  status: 'idle',
   originalSettings: emailNotificationSettings(),
   draftSettings: emailNotificationSettings(),
   ...data,
