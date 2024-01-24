@@ -3,7 +3,7 @@ import { LazyToDoBlock } from '@/components/ui/lazy-to-do-block';
 export const LazyToDoSection = () => (
   <div className="group">
     <div className="relative outline-dashed outline-1 outline-offset-8  outline-transparent transition-all hover:outline-secondary">
-      <div className="absolute right-[-630px] top-0 text-left text-secondary  opacity-0 group-hover:opacity-100">
+      <div className="absolute right-[-630px] top-0 text-left  opacity-0 group-hover:opacity-100">
         <h5 className="text-xl font-medium">
           Эта секция выходит за границы моей лени
         </h5>
