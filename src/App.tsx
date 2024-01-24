@@ -1,8 +1,12 @@
 import './App.css';
-import { EmailNotificationForm } from './context/settings/feature/emailNotification/ui/containers/emailNotificationForm/emailNotificationForm';
-
+import { ThemeProvider } from './components/ui/theme-provider';
+import { EmailNotificationForm } from './context/settings/feature/email-notification/ui/containers/email-notification-form/email-notification-form';
 function App() {
-  return <EmailNotificationForm />;
+  return (
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <EmailNotificationForm />
+    </ThemeProvider>
+  );
 }
 
 export default App;
