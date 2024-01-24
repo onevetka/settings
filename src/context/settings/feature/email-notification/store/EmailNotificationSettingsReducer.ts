@@ -10,6 +10,10 @@ export const emailNotificationSettingsReducer = (
       return toggleMarketingEmails(state);
     case 'ToggleSecurityEmailsEvent':
       return toggleSecurityEmails(state);
+    case 'SaveEvent':
+      return saveEvent(state);
+    case 'DiscardEvent':
+      return discardEvent(state);
   }
 };
 
@@ -34,5 +38,23 @@ function toggleSecurityEmails(
       ...state.draftSettings,
       isEnabledSecurityEmails: !state.draftSettings.isEnabledSecurityEmails,
     },
+  };
+}
+
+function saveEvent(
+  state: EmailNotificationSettingsState
+): EmailNotificationSettingsState {
+  return {
+    ...state,
+    originalSettings: state.draftSettings,
+  };
+}
+
+function discardEvent(
+  state: EmailNotificationSettingsState
+): EmailNotificationSettingsState {
+  return {
+    ...state,
+    draftSettings: state.originalSettings,
   };
 }

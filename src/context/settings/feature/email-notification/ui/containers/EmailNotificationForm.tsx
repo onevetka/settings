@@ -1,4 +1,5 @@
 'use client';
+import { SaveOrDiscard } from '@/context/settings/shared/save-or-discard/ui/components/SaveOrDiscard';
 import { useEmailNotificationSettings } from '../../store/useEmailNotificationSettings';
 import { SettingSwitch } from '../components/SettingSwitch';
 
@@ -6,7 +7,7 @@ export const EmailNotificationForm: React.FC = () => {
   const { viewModel } = useEmailNotificationSettings();
 
   return (
-    <form onSubmit={() => null} className="w-full space-y-6">
+    <div className="w-full space-y-6">
       <div>
         <h3 className="mb-4 text-left text-lg font-medium">
           Email Notifications
@@ -17,6 +18,9 @@ export const EmailNotificationForm: React.FC = () => {
           ))}
         </div>
       </div>
-    </form>
+      {viewModel.saveOrDiscard && (
+        <SaveOrDiscard viewModel={viewModel.saveOrDiscard} />
+      )}
+    </div>
   );
 };

@@ -12,9 +12,7 @@ export const SaveOrDiscard: React.FC<SaveOrDiscardProps> = ({ viewModel }) => {
         <Button variant="secondary" onClick={viewModel.discard.onClick}>
           Discard
         </Button>
-        <Button type="submit" onClick={viewModel.save.onClick}>
-          Save
-        </Button>
+        <Button onClick={viewModel.save.onClick}>Save</Button>
       </div>
     </>
   );

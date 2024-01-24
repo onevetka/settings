@@ -47,11 +47,17 @@ export class EmailNotificationSettingsViewModel {
       : new SaveOrDiscardViewModel({
           save: new ButtonViewModel({
             label: 'Save',
-            onClick: () => null,
+            onClick: () =>
+              dispatch({
+                type: 'SaveEvent',
+              }),
           }),
           discard: new ButtonViewModel({
             label: 'Discard',
-            onClick: () => null,
+            onClick: () =>
+              dispatch({
+                type: 'DiscardEvent',
+              }),
           }),
         });
   }

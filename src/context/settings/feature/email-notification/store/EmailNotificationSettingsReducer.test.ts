@@ -58,4 +58,40 @@ describe('EmailNotificationSettingsReducer (Способы использова�
       expect(state.draftSettings.isEnabledSecurityEmails).toBe(false);
     });
   });
+
+  describe('DiscardEvent (Сброс изменений в настройках)', () => {
+    const state = emailNotificationSettingsReducer(
+      emailNotificationSettingsState({
+        draftSettings: emailNotificationSettings({
+          isEnabledSecurityEmails: true,
+        }),
+        originalSettings: emailNotificationSettings({
+          isEnabledSecurityEmails: false,
+        }),
+      }),
+      { type: 'DiscardEvent' }
+    );
+
+    test('Сбрасывает настройки черновика до оригинальных', () => {
+      expect(state.draftSettings.isEnabledSecurityEmails).toBe(false);
+    });
+  });
+
+  describe('SaveEvent (Сохранение текущих настроек)', () => {
+    const state = emailNotificationSettingsReducer(
+      emailNotificationSettingsState({
+        draftSettings: emailNotificationSettings({
+          isEnabledSecurityEmails: true,
+        }),
+        originalSettings: emailNotificationSettings({
+          isEnabledSecurityEmails: false,
+        }),
+      }),
+      { type: 'SaveEvent' }
+    );
+
+    test('Записывает настройки черновика как оригинальные', () => {
+      expect(state.originalSettings.isEnabledSecurityEmails).toBe(true);
+    });
+  });
 });
