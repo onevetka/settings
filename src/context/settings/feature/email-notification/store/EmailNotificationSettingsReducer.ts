@@ -18,7 +18,10 @@ function toggleMarketingEmails(
 ): EmailNotificationSettingsState {
   return {
     ...state,
-    isEnabledMarketingEmails: !state.isEnabledMarketingEmails,
+    draftSettings: {
+      ...state.draftSettings,
+      isEnabledMarketingEmails: !state.draftSettings.isEnabledMarketingEmails,
+    },
   };
 }
 
@@ -27,6 +30,9 @@ function toggleSecurityEmails(
 ): EmailNotificationSettingsState {
   return {
     ...state,
-    isEnabledSecurityEmails: !state.isEnabledSecurityEmails,
+    draftSettings: {
+      ...state.draftSettings,
+      isEnabledSecurityEmails: !state.draftSettings.isEnabledSecurityEmails,
+    },
   };
 }

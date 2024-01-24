@@ -1,3 +1,4 @@
+import { emailNotificationSettings } from '../domian/entity/EmailNotificationSettings';
 import { emailNotificationSettingsReducer } from './EmailNotificationSettingsReducer';
 import { emailNotificationSettingsState } from './EmailNotificationSettingsState';
 
@@ -6,23 +7,27 @@ describe('EmailNotificationSettingsReducer (Способы использова�
     test('Включает уведомления', () => {
       const state = emailNotificationSettingsReducer(
         emailNotificationSettingsState({
-          isEnabledMarketingEmails: false,
+          draftSettings: emailNotificationSettings({
+            isEnabledMarketingEmails: false,
+          }),
         }),
         { type: 'ToggleMarketingEmailsEvent' }
       );
 
-      expect(state.isEnabledMarketingEmails).toBe(true);
+      expect(state.draftSettings.isEnabledMarketingEmails).toBe(true);
     });
 
     test('Отключает уведомления', () => {
       const state = emailNotificationSettingsReducer(
         emailNotificationSettingsState({
-          isEnabledMarketingEmails: true,
+          draftSettings: emailNotificationSettings({
+            isEnabledMarketingEmails: true,
+          }),
         }),
         { type: 'ToggleMarketingEmailsEvent' }
       );
 
-      expect(state.isEnabledMarketingEmails).toBe(false);
+      expect(state.draftSettings.isEnabledMarketingEmails).toBe(false);
     });
   });
 
@@ -30,23 +35,27 @@ describe('EmailNotificationSettingsReducer (Способы использова�
     test('Включает уведомления', () => {
       const state = emailNotificationSettingsReducer(
         emailNotificationSettingsState({
-          isEnabledSecurityEmails: false,
+          draftSettings: emailNotificationSettings({
+            isEnabledSecurityEmails: false,
+          }),
         }),
         { type: 'ToggleSecurityEmailsEvent' }
       );
 
-      expect(state.isEnabledSecurityEmails).toBe(true);
+      expect(state.draftSettings.isEnabledSecurityEmails).toBe(true);
     });
 
     test('Отключает уведомления', () => {
       const state = emailNotificationSettingsReducer(
         emailNotificationSettingsState({
-          isEnabledSecurityEmails: true,
+          draftSettings: emailNotificationSettings({
+            isEnabledSecurityEmails: true,
+          }),
         }),
         { type: 'ToggleSecurityEmailsEvent' }
       );
 
-      expect(state.isEnabledSecurityEmails).toBe(false);
+      expect(state.draftSettings.isEnabledSecurityEmails).toBe(false);
     });
   });
 });

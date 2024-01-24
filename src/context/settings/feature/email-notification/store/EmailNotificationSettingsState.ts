@@ -1,12 +1,17 @@
+import {
+  EmailNotificationSettings,
+  emailNotificationSettings,
+} from '../domian/entity/EmailNotificationSettings';
+
 export interface EmailNotificationSettingsState {
-  isEnabledMarketingEmails: boolean;
-  isEnabledSecurityEmails: boolean;
+  originalSettings: EmailNotificationSettings;
+  draftSettings: EmailNotificationSettings;
 }
 
 export const emailNotificationSettingsState = (
   data: Partial<EmailNotificationSettingsState> = {}
 ): EmailNotificationSettingsState => ({
-  isEnabledMarketingEmails: false,
-  isEnabledSecurityEmails: false,
+  originalSettings: emailNotificationSettings(),
+  draftSettings: emailNotificationSettings(),
   ...data,
 });
